@@ -19,14 +19,16 @@ app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true,
 }));
-
+app.get("/", (req, res) => {
+  res.send(`API is running...${PORT}`);
+});
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/network")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected:", process.env.MONGO_URI || "127.0.0.1"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
