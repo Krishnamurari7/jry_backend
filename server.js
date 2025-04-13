@@ -23,7 +23,8 @@ const FRONTEND_URLS = [
 // ✅ CORRECT CORS - apply only once
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: function (origin, callback) 
+    {
       if (!origin || FRONTEND_URLS.includes(origin)) {
         callback(null, true);
       } else {
