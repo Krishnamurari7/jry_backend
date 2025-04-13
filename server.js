@@ -20,6 +20,7 @@ const FRONTEND_URLS = [
   "https://jry-frontend.vercel.app", // deployed frontend
 ];
 
+
 // ✅ CORRECT CORS - apply only once
 app.use(
   cors({
