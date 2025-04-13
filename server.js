@@ -11,8 +11,11 @@ const adminRoutes = require("./routes/adminRoutes");
 const connectionRoutes = require('./routes/connectionRoutes');
 const queriesRoutes = require('./routes/queriesRoutes');
 
+
+const PORT = process.env.PORT || 5000;
 const app = express();
 connectDB();
+
 
 // Middleware
 app.use(cors({
@@ -56,5 +59,4 @@ app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
